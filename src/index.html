@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPAC - Gerenciador de Pedidos para Ateliê de Costura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
+  <style>
+    body,
+    html {
+      font-family: "Alegreya", serif;
+      color: black;
+      background: radial-gradient(
+          35.36% 35.36% at 100% 25%,
+          #0000 66%,
+          #ea8694 68% 70%,
+          #0000 72%
+        )
+        32px 32px / calc(2 * 32px) calc(2 * 32px),
+      radial-gradient(
+          35.36% 35.36% at 0 75%,
+          #0000 66%,
+          #ea8694 68% 70%,
+          #0000 72%
+        )
+        32px 32px / calc(2 * 32px) calc(2 * 32px),
+      repeating-conic-gradient(#ffecd2 0 25%, #0000 0 50%) 0 0 / calc(2 * 32px)
+        calc(2 * 32px),
+      radial-gradient(#0000 66%, #ea8694 68% 70%, #0000 72%) 0 calc(32px / 2) /
+        32px 32px #ffecd2;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #c6b399;
+      width: 100vw;
+      height: 80px;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      box-shadow: 3px 5px 10px 3px rgba(0, 0, 0, 0.56);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header img {
+      height: 60px;
+      margin-left: 20px;
+    }
+
+    .ulHeader {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 10px;
+      font-size: 18px;
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    .mainbg {
+      width: 70vw;
+      min-height: 100vh;
+      background-color: #c6b399;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: -0.5px 19px 19.5px 14px rgba(0, 0, 0, 0.56);
+      padding: 25px;
+      margin-top: 100px; /* Espaço para o header */
+      margin-bottom: 20px;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .development-title,
+    .proposal-title,
+    .difficulties-title {
+      font-size: 22px;
+      color: #d47a7a;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 40px;
+      cursor: pointer;
+    }
+
+    .development-info,
+    .proposal-info,
+    .difficulties-info {
+      font-size: 16px;
+      color: #333;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: rgba(206, 178, 155, 0.6);
+      border-radius: 10px;
+      display: none;
+    }
+
+    .footer {
+      background-color: #c6b399;
+      width: 100vw;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <img src="img/logo-gpac.jpg" alt="Logo GPAC" />
+    <ul class="ulHeader">
+      <li><a href="#main">GPAC - Gerenciador de Pedidos</a></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </header>
+
+  <div class="mainbg">
+    <main id="main">
+      <h1>Bem-vindo ao GPAC</h1>
+      <p>Transformamos suas ideias em realidade com costura e bordado de alta qualidade.</p>
+
+      <div class="development-title" onclick="toggleSection('development-info')">
+        Futuro Desenvolvimento
+      </div>
+      <div id="development-info" class="development-info">
+        <p>Estamos atualmente em fase de desenvolvimento e trabalhando para adicionar mais funcionalidades, como:</p>
+        <ul>
+          <li>Integração com Redes Sociais</li>
+          <li>Gestão de Estoque</li>
+          <li>Funcionalidade de Notificação</li>
+        </ul>
+      </div>
+
+      <div class="proposal-title" onclick="toggleSection('proposal-info')">
+        Proposta de Venda do Software
+      </div>
+      <div id="proposal-info" class="proposal-info">
+        <p>Este software gerencia pedidos e clientes, integrando funcionalidades como:</p>
+        <ul>
+          <li>Inserção e Atualização de Pedidos</li>
+          <li>Listagem e Gestão de Clientes</li>
+        </ul>
+      </div>
+
+      <div class="difficulties-title" onclick="toggleSection('difficulties-info')">
+        Dificuldades do Grupo na Criação do Projeto GPAC
+      </div>
+      <div id="difficulties-info" class="difficulties-info">
+        <p>Enfrentamos desafios como:</p>
+        <ul>
+          <li>Estruturação do HTML</li>
+          <li>Integração do Front-End com o Back-End</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <ul class="ulFooter">
+      <li><a href="#main">[LOGO]</a></li>
+      <li><a href="#main">GPAC - Gerenciador de Pedidos</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
